@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The ADHD Morning Fix — A Morning System That Actually Works</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  :root {
+    --warm-bg: #fefaf6;
+    --cream: #fff8f0;
+    --text: #2d2a26;
+    --text-soft: #5c5752;
+    --accent: #e8784a;
+    --accent-hover: #d46538;
+    --green: #5b8c5a;
+    --card-bg: #ffffff;
+    --border: #e8e0d8;
+    --shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--warm-bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  .container { max-width: 680px; margin: 0 auto; padding: 0 20px; }
+  
+  /* Hero */
+  .hero {
+    background: linear-gradient(170deg, #fdf3ea 0%, #fefaf6 40%);
+    padding: 60px 0 40px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero .label {
+    display: inline-block;
+    background: #fdf0e4;
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+  }
+  .hero h1 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 12px;
+  }
+  .hero .sub {
+    font-size: 18px;
+    color: var(--text-soft);
+    max-width: 540px;
+    margin: 0 auto 28px;
+  }
+  .btn {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 16px 40px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.15s;
+    box-shadow: 0 3px 12px rgba(232,120,74,0.3);
+  }
+  .btn:hover { background: var(--accent-hover); }
+  .btn-note {
+    font-size: 13px;
+    color: var(--text-soft);
+    margin-top: 10px;
+  }
+  
+  /* Sections */
+  section { padding: 50px 0; }
+  section.alt { background: var(--cream); }
+  
+  h2 {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 16px;
+  }
+  h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--accent);
+  }
+  p { margin-bottom: 16px; color: var(--text-soft); }
+  
+  /* Pain section */
+  .pain-quote {
+    background: var(--card-bg);
+    border-left: 4px solid var(--accent);
+    padding: 16px 20px;
+    margin: 20px 0;
+    font-style: italic;
+    color: var(--text);
+    border-radius: 0 6px 6px 0;
+    box-shadow: var(--shadow);
+  }
+  
+  /* 3 Pillars */
+  .pillars { display: grid; gap: 20px; }
+  .pillar {
+    background: var(--card-bg);
+    padding: 24px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+  }
+  .pillar .num {
+    display: inline-block;
+    background: #fdf0e4;
+    color: var(--accent);
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 36px;
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+  
+  /* Value stack */
+  .value-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: center;
+  }
+  .value-item:last-child { border-bottom: none; }
+  .value-tag {
+    background: #e8f5e3;
+    color: var(--green);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 10px;
+    margin-left: 8px;
+  }
+  .value-price { font-weight: 700; color: var(--text); white-space: nowrap; }
+  
+  .total-line { font-weight: 700; font-size: 20px; padding: 16px 0; text-align: center; color: var(--text); }
+  .total-line .strike { text-decoration: line-through; color: #999; }
+  .total-line .final { color: var(--accent); font-size: 28px; }
+  
+  /* Guarantee */
+  .guarantee-box {
+    background: var(--card-bg);
+    border: 2px solid var(--green);
+    border-radius: 10px;
+    padding: 28px 24px;
+    text-align: center;
+    box-shadow: var(--shadow);
+  }
+  .guarantee-box .shield { font-size: 36px; margin-bottom: 10px; }
+  
+  /* Who for/not */
+  .for-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .for-box {
+    background: var(--card-bg);
+    padding: 24px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+  }
+  .for-box h4 { margin-bottom: 12px; font-size: 16px; }
+  .for-box ul { list-style: none; }
+  .for-box li {
+    padding: 6px 0;
+    color: var(--text-soft);
+    font-size: 14px;
+  }
+  .for-box li::before {
+    content: "✓ ";
+    color: var(--green);
+    font-weight: 700;
+  }
+  .not-box li::before { content: "✗ "; color: #c44; }
+  
+  /* CTA bottom */
+  .cta-bottom {
+    text-align: center;
+    padding: 60px 0 40px;
+    background: linear-gradient(190deg, #fefaf6 0%, #fdf3ea 100%);
+  }
+  
+  .footer {
+    text-align: center;
+    padding: 24px 0 40px;
+    font-size: 12px;
+    color: #aaa;
+  }
+  
+  /* Mobile */
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 26px; }
+    .hero .sub { font-size: 16px; }
+    h2 { font-size: 22px; }
+    .for-grid { grid-template-columns: 1fr; }
+    .btn { width: 100%; padding: 16px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ====== HERO ====== -->
+<section class="hero">
+  <div class="container">
+    <div class="label">FOR ADHD PARENTS</div>
+    <h1>The Morning Checklist That Actually Works For ADHD Kids<br>(Even If You've Tried 10 That Didn't)</h1>
+    <p class="sub">
+      No sticker charts. No yelling. No "we're going to be late again."<br>
+      Just a simple, 5-step system built for how an ADHD brain actually works &mdash; and a parent guide that shows you how to make it stick.
+    </p>
+    <a href="#buy" class="btn">Get The ADHD Morning Fix — $17</a>
+    <p class="btn-note">Instant digital download. Start tonight.</p>
+  </div>
+</section>
+
+<!-- ====== THE MORNING YOU KNOW ====== -->
+<section>
+  <div class="container">
+    <h2>You know the morning.</h2>
+    <p>It's 7:42am. Your kid has been staring at a sock for 14 minutes. You've asked nicely. You've asked firmly. You're about to yell — and you hate that you're about to yell. The bus is in 18 minutes and nobody's eaten breakfast.</p>
+    <p>You've tried checklists. You've tried sticker charts. You've tried timers and reward systems and that magnetic board from Etsy with the cute little sliders.</p>
+    <p>They worked for three days. Then they became invisible.</p>
+    <p>Here's why — <strong>and here's the thing that actually fixes it.</strong></p>
+  </div>
+</section>
+
+<!-- ====== THE PROBLEM ====== -->
+<section class="alt">
+  <div class="container">
+    <h2>Standard checklists fail ADHD kids because they're built for neurotypical brains.</h2>
+    <p>Most morning charts make the same mistake: they treat the problem as "my kid forgets what to do." So they give you a list.</p>
+    <p>But your kid doesn't <em>forget</em> to brush their teeth. They forget to <em>start</em> brushing their teeth. They know the steps. They can't <strong>initiate</strong> them.</p>
+    <p>ADHD isn't a knowledge problem. It's an executive function problem.</p>
+    <p>And when the checklist fails — again — your kid gets the message: <em>"I can't do this either."</em> They get hours of negative feedback before they even reach school. You walk out the door feeling like a failure. They walk into school already defeated.</p>
+    <p><strong>That's what we're going to stop.</strong></p>
+  </div>
+</section>
+
+<!-- ====== SOLUTIONS — 3 PILLARS ====== -->
+<section>
+  <div class="container">
+    <h2>A morning system built around how the ADHD brain actually works — not around how it "should" work.</h2>
+    <p>The ADHD Morning Fix isn't another pretty chart. It's built on three things ADHD researchers and occupational therapists know — but most parenting products ignore:</p>
+    
+    <div class="pillars">
+      <div class="pillar">
+        <div class="num">1</div>
+        <h3>The 5-Step Maximum</h3>
+        <p>ADHD brains get overwhelmed by too many choices. Most checklists have 8–12 steps. Ours has <strong>5</strong>. That's it. Get up. Get dressed. Eat. Brush teeth. Grab bag. When every step is visible at once, there's no "what's next?" paralysis.</p>
+      </div>
+      
+      <div class="pillar">
+        <div class="num">2</div>
+        <h3>Visual Completion, Not Verbal Reminders</h3>
+        <p>ADHD kids tune out verbal instructions within seconds. (You've noticed.) The checklist uses completion cues the ADHD brain actually registers — checkmarks, colors, a <em>done</em> state. No parent narration required.</p>
+      </div>
+      
+      <div class="pillar">
+        <div class="num">3</div>
+        <h3>The Bad Morning Protocol</h3>
+        <p>Every system breaks. The difference is whether you recover or spiral. The Bad Morning Protocol is a one-page reset that says: <em>this morning went wrong. Here's what we do now. Tomorrow is new.</em> No shame. No "we failed again." Just a re-set.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== WHAT YOU GET ====== -->
+<section class="alt">
+  <div class="container">
+    <h2>Here's exactly what you're getting</h2>
+    <p>Everything you need for calmer mornings — in 15 minutes, tonight.</p>
+    
+    <div class="pillar">
+      <h3>📋 The Morning Routine Checklist (PDF)</h3>
+      <p>One page. Visual. Color-coded. Five steps. Print it, laminate it, stick it on the bathroom mirror. Your kid knows exactly what's next — without you saying a word.</p>
+    </div>
+    
+    <div class="pillar" style="margin-top: 16px;">
+      <h3>📖 The Parent Setup Guide (8-page PDF)</h3>
+      <p>This is the part nobody else gives you. Why standard checklists fail ADHD kids. How to introduce the system on Day 1 so it's <em>their</em> routine, not another thing you're making them do. The "don't nag" method — how to point at the chart instead of repeating yourself. What to do when they ignore it (because they will, at first).</p>
+    </div>
+    
+    <div class="pillar" style="margin-top: 16px;">
+      <h3>🛟 The Bad Morning Protocol (1-page PDF)</h3>
+      <p>The cheat sheet for the mornings that go sideways. A 3-step reset that takes 90 seconds. No punishment. No lecture. Just: <em>"OK, that one got away from us. Here's tomorrow."</em></p>
+    </div>
+    
+    <div class="pillar" style="margin-top: 16px;">
+      <h3>🎥 BONUS: 5-Minute Setup Walkthrough Video</h3>
+      <p>A screen recording showing exactly how a real parent sets up the system. Print settings, where to put it, the morning-of conversation. You'll be set up in under 10 minutes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== VALUE STACK ====== -->
+<section id="buy">
+  <div class="container">
+    <h2 style="text-align:center;">Here's what you're getting</h2>
+    
+    <div class="pillar" style="margin-top: 24px;">
+      <div class="value-item">
+        <span>The Morning Routine Checklist</span>
+        <span class="value-price">$19 value</span>
+      </div>
+      <div class="value-item">
+        <span>Parent Setup Guide (8-page strategy PDF)</span>
+        <span class="value-price">$29 value</span>
+      </div>
+      <div class="value-item">
+        <span>Bad Morning Protocol (recovery plan)</span>
+        <span class="value-price">$15 value</span>
+      </div>
+      <div class="value-item">
+        <span>BONUS: Setup Walkthrough Video <span class="value-tag">FREE</span></span>
+        <span class="value-price">$27 value</span>
+      </div>
+      <div class="total-line">
+        Total value: <span class="strike">$90</span><br>
+        <span class="final">Today: just $17</span>
+      </div>
+    </div>
+    
+    <p style="text-align: center; margin-top: 16px; font-size: 15px;"><strong>That's less than two Starbucks runs. For 365 calmer mornings.</strong></p>
+    
+    <div style="text-align: center; margin-top: 24px;">
+      <a href="https://buy.stripe.com/PLACEHOLDER" class="btn">Get The ADHD Morning Fix — $17</a>
+      <p class="btn-note">Instant download. 60-day guarantee.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== GUARANTEE ====== -->
+<section class="alt">
+  <div class="container">
+    <div class="guarantee-box">
+      <div class="shield">🛡️</div>
+      <h2>60 Days. If mornings don't get easier, you don't pay.</h2>
+      <p>Try The ADHD Morning Fix for a full 60 days. If your mornings aren't noticeably calmer — if you're still yelling, still rushing, still walking out the door feeling like you've already lost the day — just email me. I'll refund every penny.</p>
+      <p><strong>Keep the checklist. Keep the guide. Keep the video.</strong> No questions, no hoops, no "prove you tried."</p>
+      <p style="font-weight: 700; color: var(--text);">This works for ADHD families or it's free. Simple.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== WHO FOR / NOT FOR ====== -->
+<section>
+  <div class="container">
+    <h2>Is this for you?</h2>
+    <div class="for-grid">
+      <div class="for-box">
+        <h4>✅ This is for you if:</h4>
+        <ul>
+          <li>You dread weekday mornings</li>
+          <li>You've tried checklists and charts that worked for a week then died</li>
+          <li>You want something that works WITH your kid's brain</li>
+          <li>You want to stop being the nagging parent at 7am</li>
+        </ul>
+      </div>
+      <div class="for-box not-box">
+        <h4>❌ This is NOT for you if:</h4>
+        <ul>
+          <li>You want a miracle pill — this takes a week to stick</li>
+          <li>Your kid has no executive function challenges</li>
+          <li>You're not willing to set the foundation with the Parent Guide</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== BOTTOM CTA ====== -->
+<section class="cta-bottom">
+  <div class="container">
+    <div class="pain-quote" style="border-left-color: var(--green); margin-bottom: 28px;">
+      "The checklist that works: 5 steps. Built for the ADHD brain. 60-day guarantee."
+    </div>
+    <a href="https://buy.stripe.com/PLACEHOLDER" class="btn">Get The ADHD Morning Fix — $17</a>
+    <p class="btn-note">Instant digital download. PDFs + video. Start tonight, calmer morning tomorrow.</p>
+  </div>
+</section>
+
+<div class="footer">
+  <p>&copy; 2026 The ADHD Morning Fix &mdash; <a href="#" style="color:#aaa;">Support</a> &middot; <a href="#" style="color:#aaa;">Refunds</a></p>
+</div>
+
+</body>
+</html>
