@@ -36,7 +36,27 @@
     padding: 60px 0 40px;
     text-align: center;
     border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
   }
+  /* Hero decorative sunburst */
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(251,191,36,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .hero-illustration {
+    max-width: 300px;
+    margin: 0 auto 20px;
+    opacity: 0.9;
+  }
+  .hero-illustration svg { width: 100%; height: auto; }
   .hero .label {
     display: inline-block;
     background: #fdf0e4;
@@ -223,6 +243,40 @@
 <!-- ====== HERO ====== -->
 <section class="hero">
   <div class="container">
+    <div class="hero-illustration">
+      <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Warm morning sun -->
+        <circle cx="200" cy="70" r="50" fill="#fcd34d" opacity="0.3"/>
+        <circle cx="200" cy="70" r="35" fill="#fbbf24" opacity="0.5"/>
+        <circle cx="200" cy="70" r="22" fill="#f59e0b" opacity="0.8"/>
+        <!-- Sun rays -->
+        <g stroke="#fbbf24" stroke-width="2" opacity="0.3">
+          <line x1="200" y1="15" x2="200" y2="5"/>
+          <line x1="235" y1="35" x2="245" y2="25"/>
+          <line x1="250" y1="70" x2="260" y2="70"/>
+          <line x1="235" y1="105" x2="245" y2="115"/>
+          <line x1="165" y1="35" x2="155" y2="25"/>
+          <line x1="150" y1="70" x2="140" y2="70"/>
+          <line x1="165" y1="105" x2="155" y2="115"/>
+        </g>
+        <!-- Parent + child silhouettes at table -->
+        <rect x="90" y="120" width="220" height="65" rx="8" fill="#fde68a" opacity="0.5"/>
+        <!-- Parent -->
+        <circle cx="155" cy="108" r="12" fill="#e8784a" opacity="0.7"/>
+        <rect x="145" y="140" width="20" height="30" rx="3" fill="#e8784a" opacity="0.5"/>
+        <!-- Child -->
+        <circle cx="230" cy="113" r="10" fill="#e8784a" opacity="0.7"/>
+        <rect x="222" y="143" width="16" height="22" rx="3" fill="#e8784a" opacity="0.5"/>
+        <!-- Checklist on wall -->
+        <rect x="310" y="100" width="35" height="45" rx="3" fill="white" opacity="0.8" stroke="#e8e0d8" stroke-width="1"/>
+        <line x1="318" y1="112" x2="337" y2="112" stroke="#5b8c5a" stroke-width="2" stroke-linecap="round"/>
+        <line x1="318" y1="120" x2="337" y2="120" stroke="#5b8c5a" stroke-width="2" stroke-linecap="round"/>
+        <line x1="318" y1="128" x2="330" y2="128" stroke="#e8e0d8" stroke-width="2" stroke-linecap="round"/>
+        <rect x="318" y="134" width="14" height="3" rx="1" fill="#e8e0d8"/>
+        <!-- Heart between them -->
+        <path d="M200 118c-1-4-5-7-9-7-3 0-5 1-7 3-2-2-4-3-7-3-4 0-8 3-9 7-1 4 0 8 7 15l9 9 9-9c7-7 8-11 7-15z" fill="#e8784a" opacity="0.6"/>
+      </svg>
+    </div>
     <div class="label">FOR ADHD PARENTS</div>
     <h1>The Morning Checklist That Actually Works For ADHD Kids<br>(Even If You've Tried 10 That Didn't)</h1>
     <p class="sub">
@@ -319,6 +373,28 @@
     <h2 style="text-align:center;">Here's what you're getting</h2>
     
     <div class="pillar" style="margin-top: 24px;">
+      <div style="text-align:center; margin-bottom:20px;">
+        <svg viewBox="0 0 300 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width:260px;">
+          <!-- Checklist clipboard -->
+          <rect x="70" y="5" width="160" height="90" rx="8" fill="white" stroke="#e8e0d8" stroke-width="1.5"/>
+          <rect x="120" y="1" width="60" height="10" rx="3" fill="#e8e0d8"/>
+          <!-- Checklist items -->
+          <circle cx="95" cy="28" r="8" fill="#5b8c5a" opacity="0.15"/>
+          <path d="M91 28l3 3 6-6" stroke="#5b8c5a" stroke-width="2" stroke-linecap="round"/>
+          <rect x="112" y="24" width="80" height="8" rx="2" fill="#5b8c5a" opacity="0.2"/>
+          
+          <circle cx="95" cy="48" r="8" fill="#5b8c5a" opacity="0.15"/>
+          <path d="M91 48l3 3 6-6" stroke="#5b8c5a" stroke-width="2" stroke-linecap="round"/>
+          <rect x="112" y="44" width="65" height="8" rx="2" fill="#5b8c5a" opacity="0.2"/>
+          
+          <circle cx="95" cy="68" r="8" fill="#e8784a" opacity="0.15"/>
+          <rect x="112" y="64" width="55" height="8" rx="2" fill="#e8784a" opacity="0.15"/>
+          
+          <rect x="112" y="78" width="45" height="4" rx="2" fill="#e8e0d8" opacity="0.4"/>
+          <!-- Pen -->
+          <line x1="230" y1="72" x2="260" y2="55" stroke="#e8784a" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </div>
       <div class="value-item">
         <span>The Morning Routine Checklist</span>
         <span class="value-price">$19 value</span>
@@ -354,7 +430,12 @@
 <section class="alt">
   <div class="container">
     <div class="guarantee-box">
-      <div class="shield">🛡️</div>
+      <div style="margin-bottom: 16px;">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:60px; height:60px;">
+          <path d="M40 5L12 18v24c0 20 28 34 28 34s28-14 28-34V18L40 5z" fill="#5b8c5a" opacity="0.1" stroke="#5b8c5a" stroke-width="2"/>
+          <path d="M32 42l5 5 12-13" stroke="#5b8c5a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
       <h2>60 Days. If mornings don't get easier, you don't pay.</h2>
       <p>Try The ADHD Morning Fix for a full 60 days. If your mornings aren't noticeably calmer — if you're still yelling, still rushing, still walking out the door feeling like you've already lost the day — just email me. I'll refund every penny.</p>
       <p><strong>Keep the checklist. Keep the guide. Keep the video.</strong> No questions, no hoops, no "prove you tried."</p>
